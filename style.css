@@ -1,5 +1,8 @@
 :root {
-    --accent: #1a95ce;
+    --accent: #FF6000;
+    --background: #050505;
+    --text: #dddddd;
+    --altBackground: #0f0f0f;
 }
 
 * {
@@ -15,13 +18,16 @@ body {
         "sidebar header"
         "sidebar main-content";
     height: 100vh;
+    background-color: var(--background);
+    color: var(--text);
 }
 
 /* Sidebar section */
 
 .sidebar {
     grid-area: sidebar;
-    background-color: var(--accent);
+    background-color: var(--background);
+    border-right: 1px solid var(--accent);
     display: grid;
     grid: min-content repeat(2, 1fr) / 1fr;
     font-size: 1.5rem;
@@ -30,7 +36,10 @@ body {
 
 .sidebar-element {
     padding: .5em;
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
+}
+
+.sidebar-element:hover {
     color: azure;
 }
 
@@ -39,36 +48,201 @@ body {
     margin-bottom: 1em;
     position: sticky;
     top: 0;
-    background-color: var(--accent);
-}
+    background-color: var(--background);
+}   
 
 /* Header section */
 
 .header {
     grid-area: header;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .search-section {
-    height: 100px;
-    border: 2px solid green;
+    /* border: 2px solid green; */
     display: grid;
     grid: 1fr / min-content 1fr repeat(3, min-content);
+    align-items: center;
+    gap: 1.5em;
+   padding: .5em 2em;
 }
 
-.profile-pic {
-    width: 400px;
+.profile-pic-small {
+    width: 60px;
     height: auto;
     border-radius: 50%;
-    aspect-ratio: 1;
-    object-fit: cover;
-    background-color: black;
-    transform: translate3d(0px, 0px, 0.1px);
 }
+
+.search-bar {
+    border: var(--accent) 1px solid;
+    border-radius: 1em;
+    outline: none;
+    background: none;
+    padding: .5em;
+    font-size: 1.125rem;
+    color: var(--text);
+}
+
+.search-bar:focus {
+    outline: 2px solid var(--accent);
+}
+
+.username {
+    width: max-content;
+    font-weight: bold;
+}
+
+.intro-section {
+    display: grid;
+    grid: 1fr / min-content 1fr repeat(3, min-content);
+    gap: 1em;
+    padding: .5em 2em;
+    align-items: center;
+    border-bottom: 1px solid var(--accent);
+}
+
+.profile-pic-large {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.intro {
+    font-weight: bold;
+    display: grid;
+    grid: 1fr 2fr / 1fr;
+    gap: .25em;
+}
+
+.hello {
+    /* border: 2px solid orange; */
+    font-size: .75rem;
+}
+
+.username-extended {
+    /* border: 2px solid violet; */
+    font-size: 1.5rem;
+}
+
+.btn {
+    padding: .5em 2em;
+    border: 1px solid var(--accent);
+    border-radius: 2em;
+    font-weight: bold;
+    /* horizontal vertical blur spread color */
+    box-shadow: 0px 2px 10px 0px rgba(255, 96, 0, .2);
+    outline: none;
+    transition: box-shadow 100ms;
+    background-color: var(--background);
+    color: var(--text);
+    user-select: none;
+    font-size: 1rem;
+}
+
+.btn:hover, 
+.btn:focus {
+    box-shadow: 0px 2px 10px 0px rgba(255, 96, 0, .9);
+    cursor: pointer;
+}
+
+.btn:focus {
+    outline: 1.5px solid var(--accent);
+}
+
+.btn:active {
+    outline: 2px solid var(--accent);
+}
+
 
 /* Main-content section */
 
 .main-content {
+    background-color: var(--altBackground);
     grid-area: main-content;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
+    display: grid;
+    grid: repeat(2, 1fr) / 3fr 1fr;
+    grid-template-areas: 
+        "projects announcements"
+        "projects trending";
 }
+
+.projects {
+    grid-area: projects;
+    border: 2px solid green;
+    padding: 2em 1em;
+}
+
+.projectsContainer {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    border: 2px solid hotpink;
+    gap: 2em;
+    padding: 2em;
+}
+
+.projects-title {
+    font-size: 1.5rem;
+}
+
+.project {
+    background-color: var(--background);
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid purple;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: .25em;
+}
+
+.project-text {
+    font-size: 1.125rem;
+    opacity: .8;
+}
+
+.btns {
+    flex: 1;
+    align-self: end;
+    /* border: 2px solid brown; */
+    display: flex;
+    align-items: end;
+}
+
+.project-btn {
+    background-color: var(--accent);
+    height: 1em;
+    width: 1em;
+}
+
+.announcements {
+    grid-area: announcements;
+    border: 2px solid red;
+}
+
+.announcements-container {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: 1fr min-content;
+    height: 100%;
+    border: 2px solid salmon;
+}
+
+.announcement {
+    border: 2px solid pink;
+}
+
+.divider {
+    border: 10px solid purple;
+}
+
+.trending {
+    grid-area: trending;
+    border: 2px solid blue;
+}
+
