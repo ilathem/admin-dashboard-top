@@ -254,6 +254,7 @@ body {
     /* min-height: 60px; */
     display: flex;
     flex-direction: column;
+    padding: 0 1em;
 }
 
 .announcement-grid {
@@ -293,7 +294,7 @@ body {
 .divider {
     /* border: 10px solid purple; */
     height: 1px;
-    margin: 1em;
+    margin: 1em 0;
     background: rgb(255, 96, 0);
     background: linear-gradient(270deg, rgba(255, 96, 0, 1) 0%, rgba(28, 28, 28, 1) 100%);
 }
