@@ -17,7 +17,7 @@ body {
     font-family: "Quicksand", sans-serif;
     display: grid;
     height: 100vh;
-    grid: min-content 1fr / 1fr 6fr;
+    grid: min-content 1fr / 1fr 5fr;
     grid-template-areas:
         "sidebar header"
         "sidebar main-content";
@@ -29,25 +29,38 @@ body {
 /* Sidebar section */
 
 .sidebar {
+    padding: 1em 0 1em 1em;
     grid-area: sidebar;
     background-color: var(--background);
     border-right: 1px solid var(--accent);
     display: grid;
-    grid: min-content repeat(2, 1fr) / 1fr;
+    grid: repeat(12, minmax(min-content, 2.5em)) / min-content 1fr; 
     font-size: 1.5rem;
-    overflow: auto;
+    justify-items: center;
+    align-items: center;
+    font-weight: bold;
 }
 
-.sidebar-element {
-    padding: .5em;
-    /* border: 1px solid brown; */
+.sidebarText {
+    justify-self: start;
+    transition: color 200ms;
 }
 
-.sidebar-element:hover {
-    color: azure;
+.sidebarText:hover {
+    cursor: pointer;
+    color: var(--accent);
+}
+
+.sidebarTitle {
+    font-size: 2rem;
+}
+
+.sidebar-spacer {
+    height: 50px;
 }
 
 .title-section {
+    border: 2px solid green;
     font-size: 2rem;
     margin-bottom: 1em;
     position: sticky;
@@ -59,6 +72,9 @@ body {
 
 .header {
     grid-area: header;
+    padding-top: 1em;
+    padding-right: 1em;
+    border-bottom: 1px solid var(--accent);
     /* border: 2px solid red; */
 }
 
@@ -102,7 +118,6 @@ body {
     gap: 1em;
     padding: .5em 2em;
     align-items: center;
-    border-bottom: 1px solid var(--accent);
 }
 
 .profile-pic-large {
@@ -163,25 +178,26 @@ body {
 .main-content {
     background-color: var(--altBackground);
     grid-area: main-content;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     /* max-height: calc(100vh - 250px); */
     overflow-y: scroll;
+    scrollbar-width: none;
     display: grid;
     grid: repeat(2, 1fr) / 3fr 1fr;
     grid-template-areas:
         "projects announcements"
         "projects trending";
-    padding: 3em 1em;
+    padding: 3em 1em 0em 1em;
     gap: 2em;
 }
 
 .projects {
     grid-area: projects;
-    border: 2px solid green;
+    /* border: 2px solid green; */
     display: flex;
     flex-direction: column;
-    padding: 0 1em;
-    overflow: auto;
+    padding: 0 1em 1em 1em;
+    overflow-y: auto;
 }
 
 
@@ -306,15 +322,18 @@ body {
     /* border: 2px solid blue; */
     display: flex;
     flex-direction: column;
+    padding-bottom: 1em;
 }
 
 .trending-container {
+    scrollbar-width: none;
     overflow: auto;
     flex: 1;
     display: grid;
     grid-auto-flow: row;
     grid-auto-rows: 1fr;
     padding: 2em;
+    gap: 2em;
     /* border: 2px solid green; */
 }
 
@@ -322,6 +341,7 @@ body {
     display: grid;
     grid: 1fr / min-content 1fr;
     align-items: center;
+    gap: 1em;
     /* border: 2px solid white; */
 }
 
@@ -334,14 +354,18 @@ body {
 
 .trending-item-content {
     display: grid;
-    grid: 1fr 1fr / 1fr;
+    grid: repeat(2, min-content) / 1fr;
     gap: .25em;
     /* border: 2px solid red; */
 }
 
-.trending-user {}
+.trending-user {
+    /* border: 2px solid green;; */
+}
 
-.trending-bio {}
+.trending-bio {
+    /* border: 2px solid yellow; */
+}
 
 .subsection-title {
     font-weight: bold;
